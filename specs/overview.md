@@ -8,7 +8,6 @@ This document assumes you've read the [design goals](TODO).
 
 ## Architecture Design Goals
 
-* Full support of all Solidity [state variable types](https://docs.soliditylang.org/en/latest/types.html).
 *
 
 

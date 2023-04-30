@@ -69,13 +69,13 @@ The variable encoding process uses the contract's storage layout, and operates a
 
 ## Trustless Execution
 
-With ChugSplash, a team can approve a deployment by submitting a single tiny transaction on-chain from their multisig. Once this transaction occurs, a remote executor trustlessly completes the deployment on behalf of the team. In order for this process to be trustless, the encoded config is converted into a Merkle tree, known as an **action bundle**.
+With ChugSplash, a team can approve a deployment by submitting a single tiny transaction on-chain from their multisig. Once this transaction occurs, a remote executor trustlessly completes the deployment on behalf of the team. In order for this process to be trustless, the encoded config is converted into a Merkle tree, known as an **action tree**.
 
-An action bundle's leafs are known as **actions**. There are two types of actions:
+An action tree's leafs are known as **actions**. There are two types of actions:
 1. `SET_STORAGE`: Sets a state variable in a proxy using a [storage slot segment](TODO).
 2. `DEPLOY_CONTRACT`: Deploys a contract's bytecode.
 
-During the approval step, the project owner approves the action bundle's Merkle root (in addition to a few other pieces of info). The remote executor must supply the Merkle proof of each action during the deployment, or else the transaction will revert. This prevents the executor from supplying incorrect actions.
+During the approval step, the project owner approves the action tree's Merkle root (in addition to a few other pieces of info). The remote executor must supply the Merkle proof of each action during the deployment, or else the transaction will revert. This prevents the executor from supplying incorrect actions.
 
 In the current version of ChugSplash, the remote executor is either the ChugSplash team or another whitelisted party. In a future version of ChugSplash, execution will be totally permissionless, which will allow anyone to get paid to execute deployments on behalf of users.
 
